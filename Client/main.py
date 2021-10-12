@@ -6,6 +6,7 @@
   
 import tkinter as tk
 import tkinter.ttk as ttk
+import serial
 import serial.tools.list_ports
 import matplotlib
 
@@ -57,7 +58,20 @@ cb.place(relx=0.5, rely=0.5, anchor='center')
 cb.bind('<<ComboboxSelected>>', on_select)
 # --- frame 1 ---
 
-
-
 root.mainloop() #here we run our app
 # --- main ---
+
+
+# get data through serial
+chosenPort = 0
+ser = serial.Serial(chosenPort)
+ser.flushInput()
+
+while True:
+    try:
+        serialBytes = ser.readline()
+        decodedBytes = float(serialBytes)
+        print(decodedBytes)
+    except:
+        print('Keyboard Interrupt')
+        break
