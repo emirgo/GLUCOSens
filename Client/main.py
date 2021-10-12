@@ -63,7 +63,7 @@ root.mainloop() #here we run our app
 
 
 # get data through serial
-chosenPort = 0
+chosenPort = '/dev/cu.usbmodem14201'
 ser = serial.Serial(chosenPort)
 ser.flushInput()
 
