@@ -44,7 +44,7 @@ def realTimePlotting():
 
 # --- main ---
 root = tk.Tk() #here we create our tkinter window
-root.title("Sensor Interface")
+root.title("GLUCOSens - Real Time Analyzer Interface")
 
 #we use canvas as a placeholder, to get our initial screen size (we have defined HEIGHT and WIDTH)
 canvas = tk.Canvas(root, height=HEIGHT, width=WIDTH)
