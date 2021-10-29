@@ -9,6 +9,7 @@ import tkinter.ttk as ttk
 import serial
 import serial.tools.list_ports
 import matplotlib
+from serial.tools.list_ports_windows import comports
 
 
 #to be used on our canvas
@@ -29,6 +30,14 @@ def on_select(event=None):
 
 def single_Sensor():    
     clicked_new = int(clicked)
+
+def realTimePlotting():
+    print("Conencting to: ", cb.get())
+    print("...")
+    comPort = cb.get().split(" ", 1)
+    print(comPort[0])
+    ser = serial.Serial(comPort[0])
+
 # --- functions ---
 
 
@@ -56,14 +65,22 @@ cb = ttk.Combobox(frame1, values=serial_ports())
 cb.place(relx=0.5, rely=0.5, anchor='center')
 # assign function to combobox
 cb.bind('<<ComboboxSelected>>', on_select)
+
+button = tk.Button(root, text="Connect", command = realTimePlotting)
+button.place(relx = 0.1, rely = 0.2)
 # --- frame 1 ---
+
+
 
 root.mainloop() #here we run our app
 # --- main ---
 
 
+
+
+"""
 # get data through serial
-chosenPort = '/dev/cu.usbmodem14201'
+chosenPort = cb.get()
 ser = serial.Serial(chosenPort)
 ser.flushInput()
 
@@ -75,3 +92,4 @@ while True:
     except:
         print('Keyboard Interrupt')
         break
+"""
