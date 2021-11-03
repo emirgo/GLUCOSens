@@ -9,8 +9,8 @@ import tkinter.ttk as ttk
 import serial
 import serial.tools.list_ports
 import matplotlib
-from serial.tools.list_ports_windows import comports
-#from serial.tools.list_ports import comports
+# from serial.tools.list_ports_windows import comports
+from serial.tools.list_ports import comports
 import serial
 import time
 import csv
