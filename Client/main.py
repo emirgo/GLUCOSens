@@ -1,7 +1,7 @@
 """
-    Author: Emirhan Gocturk (460385)
-    Description: GLUCOSens desktop client
-    Date: 11 October 2021
+    Author:         Emirhan Gocturk (460385)
+    Description:    GLUCOSens desktop client
+    Date:           11 October 2021
 """
   
 import tkinter as tk
@@ -110,22 +110,3 @@ button.place(relx = 0.1, rely = 0.2)
 
 root.mainloop() #here we run our app
 # --- main ---
-
-
-
-
-"""
-# get data through serial
-chosenPort = cb.get()
-ser = serial.Serial(chosenPort)
-ser.flushInput()
-
-while True:
-    try:
-        serialBytes = ser.readline()
-        decodedBytes = float(serialBytes)
-        print(decodedBytes)
-    except:
-        print('Keyboard Interrupt')
-        break
-"""

@@ -1,7 +1,7 @@
 """
-    Author: Emirhan Gocturk (460385)
-    Description: GLUCOSens desktop client
-    Date: 12 October 2021
+    Author:         Emirhan Gocturk (460385)
+    Description:    GLUCOSens desktop client
+    Date:           12 October 2021
 """
 
 import serial
