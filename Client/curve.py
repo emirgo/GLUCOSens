@@ -9,19 +9,39 @@ from matplotlib import pyplot
 from numpy import arange
 from scipy.optimize import curve_fit
 
+def testSinglePoint():
+    # dataset
+    url = 'data/1_data.csv'
+    dataframe = read_csv(url, header=None)
+    data = dataframe.values
+    x, y = data[:, 4], data[:, -1]
+    # curve fit
+    popt, _ = curve_fit(objective, x, y)
+    a, b = popt
+    print('y = %.5f * %.5f' % (a, b))
+    pyplot.scatter(x, y)
+    x_line = arange(min(x), max(x), 1)
+    y_line = objective(x_line, a, b)
+    pyplot.plot(x_line, y_line, '--', color='red')
+    pyplot.show()
+
+def glucoFit():
+    # scan data.csv
+    # count++
+
+    # calPts = count
+    exit()
+
 def objective(x, a, b):
     return a * x + b
 
-# ask data points
-dataPoints = input("Calibration points: ")
+isDemo = input("Run demo? [y/n]")
 
-if isinstance(dataPoints, int):
-    print("Processing....")
+if isDemo is "y":
+    testSinglePoint()
 else:
-    print("FAILURE! Please input an integer value.")
-    exit()
+    glucoFit()
 
-#check if data exists
 
 """
 SINGLE POINT MEASUREMENT

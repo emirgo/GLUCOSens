@@ -23,6 +23,7 @@ import numpy as np
 #to be used on our canvas
 HEIGHT = 400
 WIDTH = 400
+indexCount = 0
 
 # --- functions ---
 def serial_ports():    
@@ -40,7 +41,9 @@ def single_Sensor():
     clicked_new = int(clicked)
 
 def realTimePlotting():
-    print(entry1.get())
+    if not isinstance(entry1, int):
+        print("ENTRY NOT INTEGER")
+        exit()
     print("Conencting to: ", cb.get())
     print("...")
     comPort = cb.get().split(" ", 1)
@@ -63,7 +66,7 @@ def realTimePlotting():
                 print(decoded_bytes)
             except:
                 continue
-            with open("test_data.csv","a") as f:
+            with open('data/'indexCount + "_data.csv","a") as f:
                 writer = csv.writer(f,delimiter=",")
                 writer.writerow([time.time(),decoded_bytes])
             y_var = np.append(y_var,decoded_bytes)
