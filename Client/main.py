@@ -40,6 +40,7 @@ def single_Sensor():
     clicked_new = int(clicked)
 
 def realTimePlotting():
+    print(entry1.get())
     print("Conencting to: ", cb.get())
     print("...")
     comPort = cb.get().split(" ", 1)
@@ -86,27 +87,23 @@ root.title("GLUCOSens - Real Time Analyzer Interface")
 canvas = tk.Canvas(root, height=HEIGHT, width=WIDTH)
 canvas.pack()
 
-#we use frames to organize all the widgets in the screen
+# Calibration points section
+label0 = tk.Label(root, text="Calibration points: ")
+canvas.create_window(100, 25, window = label0)
 
-# --- frame 1 ---
-frame1 = tk.Frame(root)
-frame1.place(relx=0, rely=0.05, relheight=0.1, relwidth=1, anchor='nw') #we use relheight and relwidth to fill whatever the parent is - in this case- root
-
-label0 = tk.Label(frame1, text="COM ")
-label0.config(font=("TkDefaultFont", 12))
-label0.place(relx = 0, rely=0.3, relwidth=0.3, relheight=0.5)
+entry1 = tk.Entry(root)
+canvas.create_window(250, 25, window = entry1)
 
 
-cb = ttk.Combobox(frame1, values=serial_ports())
-cb.place(relx=0.5, rely=0.5, anchor='center')
-# assign function to combobox
-cb.bind('<<ComboboxSelected>>', on_select)
+# COM port section
+label1 = tk.Label(root, text="COM Port: ")
+canvas.create_window(80, 75, window = label1)
+cb = ttk.Combobox(root, values=serial_ports())
+canvas.create_window(250, 75, window = cb)
 
+# Connect section
 button = tk.Button(root, text="Connect", command = realTimePlotting)
-button.place(relx = 0.1, rely = 0.2)
-# --- frame 1 ---
-
-
+canvas.create_window(350, 125, window = button)
 
 root.mainloop() #here we run our app
 # --- main ---
