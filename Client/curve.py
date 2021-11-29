@@ -37,7 +37,7 @@ def objective(x, a, b):
 
 isDemo = input("Run demo? [y/n]")
 
-if isDemo is "y":
+if isDemo == "y":
     testSinglePoint()
 else:
     glucoFit()
