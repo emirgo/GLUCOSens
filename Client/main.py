@@ -41,9 +41,12 @@ def single_Sensor():
     clicked_new = int(clicked)
 
 def realTimePlotting():
-    if not isinstance(entry1, int):
+    numOfTimes = int(entry1.get())
+    print("Calibration points: ", numOfTimes)
+    if not isinstance(numOfTimes, int):
         print("ENTRY NOT INTEGER")
         exit()
+    
     print("Conencting to: ", cb.get())
     print("...")
     comPort = cb.get().split(" ", 1)
